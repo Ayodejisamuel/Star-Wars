@@ -1,5 +1,6 @@
  
 import { useEffect, useState } from 'react';
+import SearchInput from './component/input';
 import './App.css';
 
 
@@ -11,26 +12,28 @@ const SWAPI_URL = 'https://swapi.dev/api/people';
 function App() {
 
 
-  // Fetch data from API
-  //populate the data on ui
+  // Fetch data from API......done
+  //populate the data on ui....done
   // create search functionality 
   // select results based on search input
-
-
   // const data = fetch(SWAPI_URL)
   // .then((response) => response.json());
 
   const [peopleData, setPeopleData] = useState([])
+  const [searchData, setSearchData] = useState([])
+  
 
   useEffect(() => {
     try {
           const fetchData = async() => {
-            const response = await fetch(SWAPI_URL)
+            const response = await fetch(
+              searchData ? `${SWAPI_URL}/?search=${searchData}` : SWAPI_URL)
             const data = await response.json();
 
-            console.log(data);
+        
 
             setPeopleData(data.results)
+
 
           }
 
@@ -43,7 +46,9 @@ function App() {
     }
 
   
-  }, [])
+  }, [searchData ,peopleData])
+
+
 
 
   return (
@@ -53,7 +58,7 @@ function App() {
        
 
        <div>
-        <input type="text" onChange={() => {}}/>
+         <SearchInput   onChange={setSearchData}/>
        </div>
 
        <table>
