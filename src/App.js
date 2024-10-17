@@ -16,49 +16,35 @@ function App() {
   //populate the data on ui....done
   // create search functionality 
   // select results based on search input
-  // const data = fetch(SWAPI_URL)
-  // .then((response) => response.json());
+ 
 
   const [peopleData, setPeopleData] = useState([])
-  const [searchData, setSearchData] = useState([])
+  const [searchData, setSearchData] = useState("")
   
 
   useEffect(() => {
+
     try {
           const fetchData = async() => {
             const response = await fetch(
               searchData ? `${SWAPI_URL}/?search=${searchData}` : SWAPI_URL)
             const data = await response.json();
-
-        
-
             setPeopleData(data.results)
-
-
           }
 
           fetchData();
     } catch (error) {
-     
       console.log('unable to fetch data', error)
-      
-
     }
-
   
-  }, [searchData ,peopleData])
-
-
-
+  }, [searchData])
 
   return (
     <div className="App">
        <div>Star Wars People</div>
 
-       
-
        <div>
-         <SearchInput   onChange={setSearchData}/>
+         <SearchInput value={searchData}  onChange={setSearchData}/>
        </div>
 
        <table>
@@ -71,15 +57,13 @@ function App() {
         </thead>
 
         <tbody>
-
           {peopleData.map( (person) => (
-            <tr>
+            <tr key={person.name}>
             <td>{person.name}</td>
             <td>{person.height}</td>
             <td>{person.birth_year}</td>
           </tr>
           ))}
-          
         </tbody>
        </table>
     </div>
