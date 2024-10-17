@@ -37,6 +37,7 @@ function App() {
           fetchData();
     } catch (error) {
      
+      console.log('unable to fetch data', error)
       
 
     }
@@ -69,8 +70,8 @@ function App() {
           {peopleData.map( (person) => (
             <tr>
             <td>{person.name}</td>
-            <td>13.6</td>
-            <td>1940</td>
+            <td>{person.height}</td>
+            <td>{person.birth_year}</td>
           </tr>
           ))}
           
