@@ -20,6 +20,7 @@ function App() {
 
   const [peopleData, setPeopleData] = useState([])
   const [searchData, setSearchData] = useState("")
+
   
 
   useEffect(() => {
@@ -31,7 +32,6 @@ function App() {
             const data = await response.json();
             setPeopleData(data.results)
           }
-
           fetchData();
     } catch (error) {
       console.log('unable to fetch data', error)
@@ -39,12 +39,13 @@ function App() {
   
   }, [searchData])
 
+
   return (
     <div className="App">
        <div>Star Wars People</div>
 
        <div>
-         <SearchInput value={searchData}  onChange={setSearchData}/>
+         <SearchInput value={searchData}  setSearchData={setSearchData}/>
        </div>
 
        <table>
