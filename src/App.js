@@ -50,8 +50,8 @@ function App() {
 
        <table>
         <thead>
-        <tr>
-          <th>Name</th>
+        <tr >
+          <th >Name</th>
           <th>Height</th>
           <th>Birth Year</th>
         </tr>
