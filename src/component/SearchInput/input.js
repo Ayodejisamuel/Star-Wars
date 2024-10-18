@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import './input.css'
 
 
 
@@ -10,19 +11,20 @@ const SearchInput = ({setSearchData, value}) => {
    
         const handleChange = (e) => {
                 setSearchData(e.target.value)
+ 
 
         }
   useEffect( () => {
     const delayInput = setTimeout( () => {
-        setDebounceTime(value)
+        setSearchData(debounceTime)
     }, 500)
     return () => clearTimeout(delayInput)
-  }, [value])
+  }, [debounceTime, setSearchData])
         
 
 
 
-    return (<div>
+    return (<div className="input-div">
         <input type="text"
         value={value}
          placeholder="Search by name"
