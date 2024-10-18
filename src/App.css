@@ -8,46 +8,4 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  margin-top:5vh;
- 
-}
-th {
-  font-size: 1.2rem;
-  padding: 1rem 0;
-}
-th  {
-  color : #FFDC00;
-  /* font-size: 1.2rem; */
-  padding: .5rem 0;
-  text-align: center;
-  width: 33%;
-  border: 1px solid #ddd;
-
-}
-
-td {
-  padding: .5rem 0;
-  text-align: center;
-  width: 33%;
-  border: 1px solid #ddd;
-}
-tbody  {
-  text-align: left;
-  font-size: 1rem;
-}
-
-td {
-  margin:  10px ;
-  /* color: white; */
-  font-size: 1rem;
-}
-
-tr:nth-child(even) {
-  background-color: #FF4136;
-  color: white;
-}
+/*   */

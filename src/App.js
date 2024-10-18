@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import SearchInput from "./component/SearchInput/input";
 import "./App.css";
+import { Riple } from "react-loading-indicators";
+import CharacterTable from "./component/Table/CharacterTable";
 
 const SWAPI_URL = "https://swapi.dev/api/people";
 
 function App() {
-  
+
   // Fetch data from API......done
   //populate the data on ui....done
   // create search functionality
@@ -14,10 +16,15 @@ function App() {
   const [peopleData, setPeopleData] = useState([]);
   const [searchData, setSearchData] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
-    try {
-      const fetchData = async () => {
+
+
+    const fetchData = async () => {
+      setLoading(true);
+      try {
         const response = await fetch(
           searchData ? `${SWAPI_URL}/?search=${searchData}` : SWAPI_URL
         );
@@ -25,17 +32,20 @@ function App() {
 
         if (data.results.length === 0) {
           setError("No Results Found");
-
           setPeopleData([]);
         } else {
+          console.log(data.results)
           setPeopleData(data.results);
           setError("");
         }
-      };
-      fetchData();
-    } catch (error) {
-      setError("unable to fetch data", error);
-    }
+      } catch (error) {
+        setError("Unable to fetch data");
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchData();
   }, [searchData]);
 
   return (
@@ -47,27 +57,11 @@ function App() {
       </div>
 
       {error && <p>{error}</p>}
-
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Height</th>
-            <th>Birth Year</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {peopleData.map((person) => (
-            <tr key={person.name}>
-              <td>{person.name}</td>
-              <td>{person.height}</td>
-              <td>{person.birth_year}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <CharacterTable  peopleData={peopleData}/>
+      {loading && <Riple color="#32cd32" size="medium" text="" textColor="" />}
     </div>
+
+    
   );
 }
 

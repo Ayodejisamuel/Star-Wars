@@ -10,7 +10,7 @@ const SearchInput = ({setSearchData, value}) => {
     const [debounceTime, setDebounceTime] = useState(value)
    
         const handleChange = (e) => {
-                setSearchData(e.target.value)
+                setDebounceTime(e.target.value)
  
 
         }
@@ -26,7 +26,7 @@ const SearchInput = ({setSearchData, value}) => {
 
     return (<div className="input-div">
         <input type="text"
-        value={value}
+        value={debounceTime}
          placeholder="Search by name"
          onChange={handleChange} />
        </div>

@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5vh;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    font-size: 1.2rem;
+    color: #FFDC00;
+  }
+  
+  td {
+    font-size: 1rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #FF4136;
+  }
+  
+  @media (max-width: 600px) {
+    th, td {
+      font-size: 0.8rem;
+      padding: 0.3rem;
+    }
+  }
+  
