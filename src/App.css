@@ -15,4 +15,30 @@
     margin: auto;
    }
 }
- 
+ /* Custom styles for react-toastify */
+.Toastify__Toast {
+  background-color: #1b1b1b; /* Dark background */
+  color: #FFDC00; /* Gold text color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  font-size: 1rem; /* Font size */
+}
+
+.Toastify__Toast--error {
+  background-color: yellow; /* Red for error messages */
+}
+
+.Toastify__Toast--success {
+  background-color: #32cd32; /* Green for success messages */
+}
+
+.Toastify__CloseButton {
+  color: #FFDC00; /* Gold color for close button */
+}
+
+/* Optional: Responsive styles for smaller screens */
+@media (max-width: 600px) {
+  .Toastify__Toast {
+    font-size: 0.9rem; /* Slightly smaller font size on mobile */
+  }
+}
