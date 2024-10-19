@@ -15,3 +15,6 @@ This project is a simple React application that fetches and displays data from t
 1. Clone the repository:
    ```bash
    git clone https://github.com/Ayodejisamuel/Star-Wars.git
+
+## Challenges
+No challanges faced while building the project.

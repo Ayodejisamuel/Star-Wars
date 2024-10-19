@@ -11,21 +11,13 @@
     color: #FFDC00;  
     margin: 0;
   }
- 
-  .header-subtitle {
-    font-size: 1rem;
-    color: #FF851B;  
-    margin: 5px 0 0;
-  }
   
- 
   @media (max-width: 768px) {
     .header-title {
-      font-size: 2rem;
+      font-size: 1.4rem;
     }
   
-    .header-subtitle {
-      font-size: 1rem;
-    }
+ 
+   
   }
   

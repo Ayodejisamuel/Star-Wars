@@ -5,7 +5,7 @@ import { Riple } from "react-loading-indicators";
 import CharacterTable from "./component/Table/characterTable";
 import Header from "./component/Header/header";
 
-
+//URL for fetching star war characters
 const SWAPI_URL = "https://swapi.dev/api/people";
 
 function App() {
@@ -21,8 +21,10 @@ function App() {
 
     const fetchData = async () => {
       setLoading(true);
-      setError("");
+      setError(""); //clear previous error
       try {
+
+        // fetch data based on search query, if no query fetch all characters
         const response = await fetch(
           searchQuery ? `${SWAPI_URL}/?search=${searchQuery}` : SWAPI_URL
         );
@@ -32,13 +34,14 @@ function App() {
         }
         const data = await response.json();
 
+//If no search results found  
         if (data.results.length === 0) {
           setError("No Results Found");
-          setCharacters([]);
+          setCharacters([]); // remove previous data
         } else {
-          console.log(data.results)
-          setCharacters(data.results);
-          setError("");
+          console.log(data.results)   
+          setCharacters(data.results);//update results
+          setError("");  //clear error 
         }
       } catch (error) {
         setError("Unable to fetch data, check network connection");
@@ -49,7 +52,7 @@ function App() {
     };
 
     fetchData();
-  }, [searchQuery]);
+  }, [searchQuery]); 
 
   return (
     <div className="container">
