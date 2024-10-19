@@ -17,7 +17,7 @@
   
   input {
     width: 100%;
-    max-width: 300px;
+    max-width: 1080px;
     padding: 12px 16px 12px 40px; /* Add padding-left to make space for the icon */
     margin: 20px auto;
     border: 2px solid #FFDC00;
