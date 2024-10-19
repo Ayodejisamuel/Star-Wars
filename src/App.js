@@ -72,7 +72,7 @@ function App() {
       <Header  title="Star Wars Character"/>
       <div className="search-div">
         <SearchInput value={searchQuery} setSearchQuery={setSearchQuery} />
-        {loading && <Riple color="#32cd32" size="large" text="" textColor="" />}
+        {loading && <Riple color="#ffffff" size="large" text="" textColor="" />}
       </div>
 
  
