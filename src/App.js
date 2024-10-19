@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import SearchInput from "./component/SearchInput/input";
 import "./App.css";
 import { Riple } from "react-loading-indicators";
-import CharacterTable from "./component/Table/CharacterTable";
+import CharacterTable from "./component/Table/characterTable";
+import Header from "./component/Header/header";
 
 
 const SWAPI_URL = "https://swapi.dev/api/people";
@@ -41,6 +42,7 @@ function App() {
         }
       } catch (error) {
         setError("Unable to fetch data, check network connection");
+        console.log(error.message)
       } finally {
         setLoading(false); 
       }
@@ -50,8 +52,8 @@ function App() {
   }, [searchQuery]);
 
   return (
-    <div className="App">
-      <div>Star Wars People</div>
+    <div className="container">
+      <Header />
       <div>
         <SearchInput value={searchQuery} setSearchQuery={setSearchQuery} />
         {loading && <Riple color="#32cd32" size="large" text="" textColor="" />}
@@ -59,7 +61,6 @@ function App() {
 
       {error && <p>{error}</p>}
       <CharacterTable  characters={characters}/>
-    
     </div>
 
     

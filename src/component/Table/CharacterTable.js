@@ -1,5 +1,5 @@
 import React from "react";
-import './CharacterTable.css'
+import './characterTable.css'
 
 const CharacterTable = ({characters}) => {
 

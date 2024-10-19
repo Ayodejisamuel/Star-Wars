@@ -1,0 +1,31 @@
+ 
+.header-container {
+    background-color: #001F3F;  
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #FFDC00;  
+  }
+ 
+  .header-title {
+    font-size: 1.8rem;
+    color: #FFDC00;  
+    margin: 0;
+  }
+ 
+  .header-subtitle {
+    font-size: 1rem;
+    color: #FF851B;  
+    margin: 5px 0 0;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 2rem;
+    }
+  
+    .header-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
