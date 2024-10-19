@@ -20,7 +20,7 @@ function App() {
 
 
   const toastOptions = {
-    position: "center-right",
+    position: "bottom-right",
     autoClose: 5000,
     pauseOnHover: true,
     draggable: true,
@@ -72,7 +72,7 @@ function App() {
       <Header  title="Star Wars Character"/>
       <div className="search-div">
         <SearchInput value={searchQuery} setSearchQuery={setSearchQuery} />
-        {loading && <Riple color="#ffffff" size="large" text="" textColor="" />}
+        {loading && <Riple color="#fff" size="medium" text="" textColor="" />}
       </div>
 
  
