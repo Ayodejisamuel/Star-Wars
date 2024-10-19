@@ -2,7 +2,7 @@
 .input-div {
   display: flex;
   align-items: center;
-  background-color:#3b3b4f; /* Dark background */
+  background-color:#1b1b1b; /* Dark background */
   border-radius: 5px;
   padding: 10px;
   margin: 4vh 0;
@@ -17,13 +17,12 @@
   padding: 10px;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #3b3b4f; /* Dark input background */
+  background-color: #1b1b1b; /* Dark input background */
   color: #EAEAEA; /* Light text */
   transition: background-color 0.3s ease-in-out;
 }
 
 /* Change input background color on focus */
-.input:focus {
- /* border: 3px solid #EAEAEA; */
- background-color: red;
-}
+ .input-div:focus {
+  background-color: red;
+ }

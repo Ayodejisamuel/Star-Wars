@@ -8,4 +8,12 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
-/*   */
+
+
+@media screen and (max-width: 600px){
+  .search-div {
+    width: 95%;
+    margin: auto;
+   }
+}
+ 

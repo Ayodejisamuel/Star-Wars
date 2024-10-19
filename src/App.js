@@ -70,7 +70,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <div>
+      <div className="search-div">
         <SearchInput value={searchQuery} setSearchQuery={setSearchQuery} />
         {loading && <Riple color="#32cd32" size="large" text="" textColor="" />}
       </div>
