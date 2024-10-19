@@ -20,7 +20,7 @@ function App() {
 
 
   const toastOptions = {
-    position: "bottom-right",
+    position: "center-right",
     autoClose: 5000,
     pauseOnHover: true,
     draggable: true,
