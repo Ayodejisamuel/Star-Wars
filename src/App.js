@@ -15,7 +15,7 @@ function App() {
 
   const [characters, setCharacters] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [error, setError] = useState("");
+ 
   const [loading, setLoading] = useState(false);
 
 
@@ -32,7 +32,7 @@ function App() {
 
     const fetchData = async () => {
       setLoading(true);
-      setError(""); //clear previous error
+    
       try {
 
         // fetch data based on search query, if no query fetch all characters
@@ -47,13 +47,13 @@ function App() {
 
 //If no search results found  
         if (data.results.length === 0) {
-          setError("No Results Found");
+ 
           toast.error("No Results Found", toastOptions);
           setCharacters([]); // remove previous data
         } else {
           console.log(data.results)   
           setCharacters(data.results);//update results
-          setError("");  //clear error 
+ 
         }
       } catch (error) {
         // setError("Unable to fetch data, check network connection");
@@ -65,7 +65,7 @@ function App() {
     };
 
     fetchData();
-  }, [searchQuery]); 
+  }, [searchQuery,]); 
 
   return (
     <div className="container">
@@ -75,8 +75,11 @@ function App() {
         {loading && <Riple color="#32cd32" size="large" text="" textColor="" />}
       </div>
 
-      {error && <p>{error}</p>}
-      <CharacterTable  characters={characters}/>
+ 
+      {!loading && 
+       <CharacterTable  characters={characters}/>
+      }
+     
 
       <ToastContainer />
     </div>

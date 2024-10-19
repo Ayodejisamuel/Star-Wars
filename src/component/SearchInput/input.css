@@ -1,42 +1,29 @@
+ 
 .input-div {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .search-icon {
-    position: absolute;
-    left: 10px;  
-    top: 50%;
-    transform: translateY(-50%);
-    color: #FFDC00;  
-    font-size: 1.2rem;  
-  }
-  
-  input {
-    width: 100%;
-    max-width: 1080px;
-    padding: 12px 16px 12px 40px;
-    margin: 20px auto;
-    border: 2px solid #FFDC00;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    background-color: #001F3F;
-    color: #FF4136;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  input:focus {
-    border-color: #FF851B;  
-    box-shadow: 0 0 5px rgba(255, 133, 27, 0.5); 
-  }
-  
-  @media screen and (max-width: 768px) {
-    input {
-      width: 90%;
-    }
-  }
-  
+  display: flex;
+  align-items: center;
+  background-color:#3b3b4f; /* Dark background */
+  border-radius: 5px;
+  padding: 10px;
+  margin: 4vh 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+}
+
+/* Style the input field */
+.input-div input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #3b3b4f; /* Dark input background */
+  color: #EAEAEA; /* Light text */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Change input background color on focus */
+.input:focus {
+ /* border: 3px solid #EAEAEA; */
+ background-color: red;
+}
