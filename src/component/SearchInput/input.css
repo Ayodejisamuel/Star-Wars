@@ -17,7 +17,7 @@
   padding: 10px;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #1b1b1b; /* Dark input background */
+  background-color:transparent; /* Dark input background */
   color: #EAEAEA; /* Light text */
   transition: background-color 0.3s ease-in-out;
 }
