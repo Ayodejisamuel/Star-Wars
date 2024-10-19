@@ -1,7 +1,7 @@
 import React from "react";
 import './CharacterTable.css'
 
-const CharacterTable = ({peopleData}) => {
+const CharacterTable = ({characters}) => {
 
     return (<div>
 <table>
@@ -14,11 +14,11 @@ const CharacterTable = ({peopleData}) => {
         </thead>
 
         <tbody>
-          {peopleData.map((person) => (
-            <tr key={person.name}>
-              <td>{person.name}</td>
-              <td>{person.height}</td>
-              <td>{person.birth_year}</td>
+          {characters.map((character) => (
+            <tr key={character.name}>
+              <td>{character.name}</td>
+              <td>{character.height}</td>
+              <td>{character.birth_year}</td>
             </tr>
           ))}
         </tbody>

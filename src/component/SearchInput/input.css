@@ -1,23 +1,42 @@
-input {
-     width: 100%; 
-    max-width: 300px; 
-    padding: 10px;
+.input-div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 10px; /* Position the icon inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFDC00; /* Change to your preferred icon color */
+    font-size: 1.2rem; /* Adjust the size of the icon as needed */
+  }
+  
+  input {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px 12px 40px; /* Add padding-left to make space for the icon */
     margin: 20px auto;
     border: 2px solid #FFDC00;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     background-color: #001F3F;
     color: #FF4136;
     outline: none;
     transition: border-color 0.3s ease-in-out;
-
-}
-
-@media screen and (max-width: 768px) {
-
+  }
+  
+  input:focus {
+    border-color: #FF851B; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(255, 133, 27, 0.5); /* Add subtle focus shadow */
+  }
+  
+  @media screen and (max-width: 768px) {
     input {
-        width: 90%;
-        margin: auto;
+      width: 90%;
     }
-    
-}
+  }
+  

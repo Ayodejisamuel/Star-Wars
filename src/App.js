@@ -4,17 +4,13 @@ import "./App.css";
 import { Riple } from "react-loading-indicators";
 import CharacterTable from "./component/Table/CharacterTable";
 
+
 const SWAPI_URL = "https://swapi.dev/api/people";
 
 function App() {
 
-  // Fetch data from API......done
-  //populate the data on ui....done
-  // create search functionality
-  // select results based on search input
-
-  const [peopleData, setPeopleData] = useState([]);
-  const [searchData, setSearchData] = useState("");
+  const [characters, setCharacters] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -24,41 +20,46 @@ function App() {
 
     const fetchData = async () => {
       setLoading(true);
+      setError("");
       try {
         const response = await fetch(
-          searchData ? `${SWAPI_URL}/?search=${searchData}` : SWAPI_URL
+          searchQuery ? `${SWAPI_URL}/?search=${searchQuery}` : SWAPI_URL
         );
+
+        if(!response.ok) {
+          throw new Error('Network Error')
+        }
         const data = await response.json();
 
         if (data.results.length === 0) {
           setError("No Results Found");
-          setPeopleData([]);
+          setCharacters([]);
         } else {
           console.log(data.results)
-          setPeopleData(data.results);
+          setCharacters(data.results);
           setError("");
         }
       } catch (error) {
-        setError("Unable to fetch data");
+        setError("Unable to fetch data, check network connection");
       } finally {
         setLoading(false); 
       }
     };
 
     fetchData();
-  }, [searchData]);
+  }, [searchQuery]);
 
   return (
     <div className="App">
       <div>Star Wars People</div>
-
       <div>
-        <SearchInput value={searchData} setSearchData={setSearchData} />
+        <SearchInput value={searchQuery} setSearchQuery={setSearchQuery} />
+        {loading && <Riple color="#32cd32" size="large" text="" textColor="" />}
       </div>
 
       {error && <p>{error}</p>}
-      <CharacterTable  peopleData={peopleData}/>
-      {loading && <Riple color="#32cd32" size="medium" text="" textColor="" />}
+      <CharacterTable  characters={characters}/>
+    
     </div>
 
     

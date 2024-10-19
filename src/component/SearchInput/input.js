@@ -1,32 +1,32 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import './input.css'
+import {FaSearch} from 'react-icons/fa'
 
 
 
-const SearchInput = ({setSearchData, value}) => {
+const SearchInput = ({setSearchQuery, value}) => {
 
 
-    const [debounceTime, setDebounceTime] = useState(value)
+    const [searchDelay, setSearchDelay] = useState(value)
    
         const handleChange = (e) => {
-                setDebounceTime(e.target.value)
+                setSearchDelay(e.target.value)
  
 
         }
   useEffect( () => {
     const delayInput = setTimeout( () => {
-        setSearchData(debounceTime)
+        setSearchQuery(searchDelay.toLowerCase())
     }, 500)
     return () => clearTimeout(delayInput)
-  }, [debounceTime, setSearchData])
+  }, [searchDelay, setSearchQuery])
         
 
-
-
     return (<div className="input-div">
+       <FaSearch className="search-icon" />
         <input type="text"
-        value={debounceTime}
+        value={searchDelay}
          placeholder="Search by name"
          onChange={handleChange} />
        </div>
