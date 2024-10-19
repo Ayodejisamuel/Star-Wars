@@ -2,14 +2,14 @@
 .input-div {
   display: flex;
   align-items: center;
-  background-color:#1b1b1b; /* Dark background */
+  background-color:#1b1b1b; 
   border-radius: 5px;
   padding: 10px;
   margin: 4vh 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);  
 }
 
-/* Style the input field */
+ 
 .input-div input {
   border: none;
   outline: none;
@@ -17,12 +17,11 @@
   padding: 10px;
   border-radius: 5px;
   font-size: 1rem;
-  background-color:transparent; /* Dark input background */
-  color: #EAEAEA; /* Light text */
+  background-color:transparent;  
+  color: #EAEAEA;  
   transition: background-color 0.3s ease-in-out;
 }
 
-/* Change input background color on focus */
  .input-div:focus {
   background-color: red;
  }
