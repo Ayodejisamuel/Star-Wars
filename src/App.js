@@ -4,6 +4,9 @@ import "./App.css";
 import { Riple } from "react-loading-indicators";
 import CharacterTable from "./component/Table/characterTable";
 import Header from "./component/Header/header";
+import { ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 //URL for fetching star war characters
 const SWAPI_URL = "https://swapi.dev/api/people";
@@ -15,6 +18,14 @@ function App() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 5000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
 
   useEffect(() => {
 
@@ -37,6 +48,7 @@ function App() {
 //If no search results found  
         if (data.results.length === 0) {
           setError("No Results Found");
+          toast.error("No Results Found", toastOptions);
           setCharacters([]); // remove previous data
         } else {
           console.log(data.results)   
@@ -44,7 +56,8 @@ function App() {
           setError("");  //clear error 
         }
       } catch (error) {
-        setError("Unable to fetch data, check network connection");
+        // setError("Unable to fetch data, check network connection");
+        toast.error("Unable to fetch data, check network connection", toastOptions);
         console.log(error.message)
       } finally {
         setLoading(false); 
@@ -64,6 +77,8 @@ function App() {
 
       {error && <p>{error}</p>}
       <CharacterTable  characters={characters}/>
+
+      <ToastContainer />
     </div>
 
     
